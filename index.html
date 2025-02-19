@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download NXB IPTV APK</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,50 +17,196 @@
             background: linear-gradient(135deg, #4e54c8, #8f94fb);
             color: white;
             text-align: center;
-        }
-        .container {
             padding: 20px;
-            border-radius: 12px;
-            background: rgba(0, 0, 0, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: bgAnimation 8s infinite alternate;
         }
+
+        @keyframes bgAnimation {
+            0% { background: linear-gradient(135deg, #4e54c8, #8f94fb); }
+            100% { background: linear-gradient(135deg, #6a11cb, #2575fc); }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            body { background: linear-gradient(135deg, #2c3e50, #4ca1af); }
+        }
+
+        .container {
+            padding: 25px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
         .logo {
-            width: 120px;
-            margin-bottom: 20px;
+            width: 100px;
+            margin-bottom: 15px;
         }
+
         h1 {
+            font-size: 22px;
+            font-weight: 600;
             margin-bottom: 10px;
         }
+
+        .update-text {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
         .download-btn {
             display: inline-block;
             padding: 12px 24px;
-            margin-top: 20px;
+            margin-top: 15px;
             font-size: 18px;
+            font-weight: 600;
             text-decoration: none;
             color: white;
-            background: #6a11cb;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
             border-radius: 8px;
-            transition: background 0.3s;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
         }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.4s ease-in-out;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
         .download-btn:hover {
-            background: #2575fc;
+            background: linear-gradient(90deg, #2575fc, #6a11cb);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
         }
+
+        /* Download Progress Indicator */
+        .loading {
+            display: none;
+            margin-top: 10px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* QR Code Styling */
+        .qr-container {
+            margin-top: 15px;
+        }
+
+        .qr-container img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            margin-top: 15px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
     </style>
 </head>
-
 <body>
 
     <div class="container">
         <img src="https://i.ibb.co/vxYGP3h8/Photoroom-20240720-094102.png" alt="App Logo" class="logo">
-        <h1>Download Your APK</h1>
-        UPDATE AVAILABLE !
-WHATS NEW?
-UPDATED UI,ANDROID TV COMPATIBILITY(BETA) FOR TEST ONLY,GLASSMORPHISM CARDS CHANNELS,NO VIRUS DETECTION 100% SAFE,LIGHTWEIGHT APK.ENJOY!
-NO APP YET?
-        <p>Click the button below to download the APK file:</p>
-        <a href="https://www.opendrive.com/download/NTBfMjk3NjY1NDRfZmppZmk?folder_id=NTBfMTY3MDMzNF83ZGFoRA" class="download-btn" download>Download APK</a>
+        <h1 id="title">Download NXB IPTV APK</h1>
+        <p class="update-text" id="update-text">
+            <strong>Update Available!</strong><br>
+            - Updated UI<br>
+            - Android TV Compatibility (Beta)<br>
+            - Glassmorphism Channel Cards<br>
+            - 100% Safe, No Virus Detection<br>
+            - Lightweight APK, Enjoy!<br><br>
+            <strong>Don't have the app yet?</strong>
+        </p>
+
+        <!-- Download Button -->
+        <a href="https://www.opendrive.com/download/NTBfMjk3NjY1NDRfZmppZmk?folder_id=NTBfMTY3MDMzNF83ZGFoRA" class="download-btn" id="download-btn" download>
+            Download APK
+        </a>
+        <p class="loading" id="loading-text">Downloading...</p>
+
+        <!-- QR Code -->
+        <div class="qr-container">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.opendrive.com/download/NTBfMjk3NjY1NDRfZmppZmk?folder_id=NTBfMTY3MDMzNF83ZGFoRA" alt="QR Code">
+            <p>Scan to Download</p>
+        </div>
+
+        <!-- Language Switch -->
+        <p class="lang-switch" onclick="toggleLanguage()">Español 🌍</p>
     </div>
 
-</body>
+    <script>
+        // Download Button Click Effect
+        document.getElementById("download-btn").addEventListener("click", function () {
+            var loadingText = document.getElementById("loading-text");
+            loadingText.style.display = "block";
+            setTimeout(() => {
+                loadingText.style.display = "none";
+            }, 3000); // Hide after 3 seconds
+        });
 
+        // Language Toggle
+        function toggleLanguage() {
+            var title = document.getElementById("title");
+            var updateText = document.getElementById("update-text");
+            var langSwitch = document.querySelector(".lang-switch");
+
+            if (langSwitch.innerText.includes("Español")) {
+                title.innerText = "Descargar NXB IPTV APK";
+                updateText.innerHTML = `
+                    <strong>¡Actualización Disponible!</strong><br>
+                    - Interfaz Actualizada<br>
+                    - Compatibilidad con Android TV (Beta)<br>
+                    - Tarjetas Glassmorphism<br>
+                    - 100% Seguro, Sin Virus<br>
+                    - APK Ligero, ¡Disfrútalo!<br><br>
+                    <strong>¿Aún no tienes la aplicación?</strong>
+                `;
+                langSwitch.innerText = "English 🌍";
+            } else {
+                title.innerText = "Download NXB IPTV APK";
+                updateText.innerHTML = `
+                    <strong>Update Available!</strong><br>
+                    - Updated UI<br>
+                    - Android TV Compatibility (Beta)<br>
+                    - Glassmorphism Channel Cards<br>
+                    - 100% Safe, No Virus Detection<br>
+                    - Lightweight APK, Enjoy!<br><br>
+                    <strong>Don't have the app yet?</strong>
+                `;
+                langSwitch.innerText = "Español 🌍";
+            }
+        }
+    </script>
+
+</body>
 </html>
