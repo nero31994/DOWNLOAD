@@ -7,28 +7,22 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #4e54c8, #8f94fb);
-            color: white;
             text-align: center;
-            padding: 20px;
-            animation: bgAnimation 8s infinite alternate;
-        }
-
-        @keyframes bgAnimation {
-            0% { background: linear-gradient(135deg, #4e54c8, #8f94fb); }
-            100% { background: linear-gradient(135deg, #6a11cb, #2575fc); }
-        }
-
-        /* Dark Mode Support */
-        @media (prefers-color-scheme: dark) {
-            body { background: linear-gradient(135deg, #2c3e50, #4ca1af); }
+            color: white;
+            background: url('https://i.ibb.co/4ZyGc32/water-4-1.gif') no-repeat center center fixed;
+            background-size: cover;
         }
 
         .container {
@@ -84,27 +78,11 @@
             overflow: hidden;
         }
 
-        .download-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.4s ease-in-out;
-        }
-
-        .download-btn:hover::before {
-            left: 100%;
-        }
-
         .download-btn:hover {
             background: linear-gradient(90deg, #2575fc, #6a11cb);
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
         }
 
-        /* Download Progress Indicator */
         .loading {
             display: none;
             margin-top: 10px;
@@ -112,7 +90,6 @@
             opacity: 0.8;
         }
 
-        /* QR Code Styling */
         .qr-container {
             margin-top: 15px;
         }
@@ -123,14 +100,18 @@
             border-radius: 8px;
         }
 
-        /* Language Switcher */
+        .download-counter {
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
         .lang-switch {
             margin-top: 15px;
             font-size: 14px;
             cursor: pointer;
             text-decoration: underline;
         }
-
     </style>
 </head>
 <body>
@@ -148,33 +129,40 @@
             <strong>Don't have the app yet?</strong>
         </p>
 
-        <!-- Download Button -->
         <a href="https://www.opendrive.com/download/NTBfMjk3NjY1NDRfZmppZmk?folder_id=NTBfMTY3MDMzNF83ZGFoRA" class="download-btn" id="download-btn" download>
             Download APK
         </a>
         <p class="loading" id="loading-text">Downloading...</p>
 
-        <!-- QR Code -->
+        <div class="download-counter">Downloads: <span id="download-count">0</span></div>
+
         <div class="qr-container">
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.opendrive.com/download/NTBfMjk3NjY1NDRfZmppZmk?folder_id=NTBfMTY3MDMzNF83ZGFoRA" alt="QR Code">
             <p>Scan to Download</p>
         </div>
 
-        <!-- Language Switch -->
         <p class="lang-switch" onclick="toggleLanguage()">Español 🌍</p>
     </div>
 
     <script>
-        // Download Button Click Effect
+        // Retrieve download count from localStorage
+        let downloadCount = localStorage.getItem("downloadCount") || 0;
+        document.getElementById("download-count").innerText = downloadCount;
+
         document.getElementById("download-btn").addEventListener("click", function () {
             var loadingText = document.getElementById("loading-text");
             loadingText.style.display = "block";
+
+            // Increment and store download count
+            downloadCount++;
+            localStorage.setItem("downloadCount", downloadCount);
+            document.getElementById("download-count").innerText = downloadCount;
+
             setTimeout(() => {
                 loadingText.style.display = "none";
-            }, 3000); // Hide after 3 seconds
+            }, 3000);
         });
 
-        // Language Toggle
         function toggleLanguage() {
             var title = document.getElementById("title");
             var updateText = document.getElementById("update-text");
