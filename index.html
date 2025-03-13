@@ -21,36 +21,21 @@
             height: 100vh;
             text-align: center;
             color: white;
-            background: url('https://source.unsplash.com/1600x900/?technology,dark') no-repeat center center/cover;
+            background: url('https://i.ibb.co/4ZyGc32/water-4-1.gif') no-repeat center center fixed;
+            background-size: cover;
             flex-direction: column;
             padding: 20px;
             transition: all 0.3s ease-in-out;
         }
 
-        .container {
-            padding: 20px;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            max-width: 450px;
-            width: 100%;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .container:hover {
-            transform: scale(1.03);
-        }
-
         .logo {
-            width: 80px;
+            width: 100px;
             margin-bottom: 10px;
             animation: fadeIn 1.5s ease-in-out;
         }
 
         h1 {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 600;
             margin-bottom: 10px;
             opacity: 0;
@@ -58,8 +43,8 @@
         }
 
         .update-text {
-            font-size: 14px;
-            line-height: 1.5;
+            font-size: 15px;
+            line-height: 1.6;
             opacity: 0;
             animation: fadeIn 1.8s ease-in-out forwards;
         }
@@ -71,21 +56,21 @@
 
         .download-btn {
             display: inline-block;
-            padding: 12px 24px;
+            padding: 14px 28px;
             margin-top: 16px;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
             text-decoration: none;
             color: white;
-            background: #ff512f;
-            border-radius: 6px;
+            background: linear-gradient(90deg, #ff512f, #dd2476);
+            border-radius: 8px;
             transition: all 0.3s ease-in-out;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .download-btn:hover {
-            background: #dd2476;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(90deg, #dd2476, #ff512f);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         .loading {
@@ -96,18 +81,18 @@
         }
 
         .qr-container {
-            margin-top: 16px;
+            margin-top: 18px;
         }
 
         .qr-container img {
-            width: 90px;
-            height: 90px;
-            border-radius: 6px;
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
         }
 
         .download-counter {
-            margin-top: 14px;
-            font-size: 15px;
+            margin-top: 16px;
+            font-size: 16px;
             font-weight: bold;
             opacity: 0;
             animation: fadeIn 2s ease-in-out forwards;
@@ -115,14 +100,14 @@
 
         .download-counter span {
             color: #ff512f;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             transition: transform 0.2s ease-in-out;
         }
 
         .lang-switch {
-            margin-top: 14px;
-            font-size: 13px;
+            margin-top: 16px;
+            font-size: 14px;
             cursor: pointer;
             text-decoration: underline;
             transition: color 0.3s;
@@ -132,7 +117,7 @@
             color: #ff512f;
         }
 
-        /* ✅ Full Landscape Mode Fit */
+        /* 🎯 Dynamic Landscape Mode */
         @media (orientation: landscape) {
             body {
                 flex-direction: row;
@@ -141,67 +126,61 @@
                 padding: 30px;
             }
 
-            .container {
-                max-width: 500px;
-                padding: 25px;
-            }
-
             .logo {
-                width: 70px;
+                width: 80px;
                 margin-bottom: 8px;
             }
 
             h1 {
-                font-size: 18px;
+                font-size: 20px;
             }
 
             .update-text {
-                font-size: 13px;
+                font-size: 14px;
             }
 
             .download-btn {
-                font-size: 15px;
-                padding: 10px 20px;
+                font-size: 16px;
+                padding: 12px 24px;
             }
 
             .qr-container {
-                margin-top: 14px;
+                margin-top: 15px;
             }
 
             .qr-container img {
-                width: 80px;
-                height: 80px;
+                width: 90px;
+                height: 90px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <img src="https://i.ibb.co/vxYGP3h8/Photoroom-20240720-094102.png" alt="App Logo" class="logo">
-        <h1 id="title">Download NXB IPTV APK</h1>
-        <p class="update-text" id="update-text">
-            <strong>🚀 New Update Available!</strong><br>
-            ✅ Updated UI & Better Performance<br>
-            ✅ Android TV Support (Beta)<br>
-            ✅ Lightweight & Secure APK<br><br>
-            <strong>Get the latest version now!</strong>
-        </p>
+    <img src="https://i.ibb.co/vxYGP3h8/Photoroom-20240720-094102.png" alt="App Logo" class="logo">
+    <h1 id="title">Download NXB IPTV APK</h1>
+    <p class="update-text" id="update-text">
+        <strong>🚀 New Update Available!</strong><br>
+        ✅ Updated UI & Glassmorphism Design<br>
+        ✅ Android TV Support (Beta)<br>
+        ✅ Lightweight & Secure APK<br>
+        ✅ Enhanced Performance!<br><br>
+        <strong>Get the latest version now!</strong>
+    </p>
 
-        <a href="https://kwmbhphzkhr8kkiu.public.blob.vercel-storage.com/NXBFLIXTV-AjqQZmy6Nsx4HXkiRJfnGlWbXzvz25.apk" class="download-btn" id="download-btn" download>
-            Download APK
-        </a>
-        <p class="loading" id="loading-text">Downloading...</p>
+    <a href="https://kwmbhphzkhr8kkiu.public.blob.vercel-storage.com/NXBFLIXTV-AjqQZmy6Nsx4HXkiRJfnGlWbXzvz25.apk" class="download-btn" id="download-btn" download>
+        Download APK
+    </a>
+    <p class="loading" id="loading-text">Downloading...</p>
 
-        <div class="download-counter">Downloads: <span id="download-count">0</span></div>
+    <div class="download-counter">Downloads: <span id="download-count">0</span></div>
 
-        <div class="qr-container">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kwmbhphzkhr8kkiu.public.blob.vercel-storage.com/NXBFLIXTV-AjqQZmy6Nsx4HXkiRJfnGlWbXzvz25.apk" alt="QR Code">
-            <p>📲 Scan to Download</p>
-        </div>
-
-        <p class="lang-switch" onclick="toggleLanguage()">Español 🌍</p>
+    <div class="qr-container">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kwmbhphzkhr8kkiu.public.blob.vercel-storage.com/NXBFLIXTV-AjqQZmy6Nsx4HXkiRJfnGlWbXzvz25.apk" alt="QR Code">
+        <p>📲 Scan to Download</p>
     </div>
+
+    <p class="lang-switch" onclick="toggleLanguage()">Español 🌍</p>
 
     <script>
         let downloadCount = localStorage.getItem("downloadCount") || 0;
