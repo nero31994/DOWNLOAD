@@ -23,38 +23,44 @@
             color: white;
             background: url('https://i.ibb.co/4ZyGc32/water-4-1.gif') no-repeat center center fixed;
             background-size: cover;
+            flex-direction: column;
+            padding: 20px;
+            transition: all 0.3s ease-in-out;
         }
 
         .container {
-            padding: 25px;
-            border-radius: 16px;
+            padding: 30px;
+            border-radius: 20px;
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            max-width: 400px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            max-width: 450px;
             transition: transform 0.3s ease-in-out;
         }
 
         .container:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
         }
 
         .logo {
-            width: 100px;
-            margin-bottom: 15px;
+            width: 110px;
+            margin-bottom: 12px;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         h1 {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            opacity: 0;
+            animation: fadeIn 1.2s ease-in-out forwards;
         }
 
         .update-text {
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.6;
             opacity: 0;
-            animation: fadeIn 1.5s ease-in-out forwards;
+            animation: fadeIn 1.8s ease-in-out forwards;
         }
 
         @keyframes fadeIn {
@@ -64,23 +70,23 @@
 
         .download-btn {
             display: inline-block;
-            padding: 12px 24px;
-            margin-top: 15px;
+            padding: 14px 28px;
+            margin-top: 16px;
             font-size: 18px;
-            font-weight: 600;
+            font-weight: bold;
             text-decoration: none;
             color: white;
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            background: linear-gradient(90deg, #ff512f, #dd2476);
             border-radius: 8px;
             transition: all 0.3s ease-in-out;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
         }
 
         .download-btn:hover {
-            background: linear-gradient(90deg, #2575fc, #6a11cb);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(90deg, #dd2476, #ff512f);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         .loading {
@@ -91,26 +97,77 @@
         }
 
         .qr-container {
-            margin-top: 15px;
+            margin-top: 18px;
         }
 
         .qr-container img {
-            width: 100px;
-            height: 100px;
+            width: 110px;
+            height: 110px;
             border-radius: 8px;
         }
 
         .download-counter {
-            margin-top: 15px;
+            margin-top: 16px;
             font-size: 16px;
             font-weight: bold;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        .download-counter span {
+            color: #ff512f;
+            font-size: 20px;
+            font-weight: bold;
+            transition: transform 0.2s ease-in-out;
         }
 
         .lang-switch {
-            margin-top: 15px;
+            margin-top: 16px;
             font-size: 14px;
             cursor: pointer;
             text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        .lang-switch:hover {
+            color: #ff512f;
+        }
+
+        /* Landscape Mode Styling */
+        @media (orientation: landscape) {
+            body {
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                padding: 30px;
+            }
+
+            .container {
+                max-width: 600px;
+                padding: 35px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .update-text {
+                font-size: 17px;
+            }
+
+            .download-btn {
+                font-size: 20px;
+                padding: 16px 30px;
+            }
+
+            .qr-container {
+                margin-top: 20px;
+            }
+
+            .qr-container img {
+                width: 130px;
+                height: 130px;
+            }
         }
     </style>
 </head>
@@ -120,13 +177,12 @@
         <img src="https://i.ibb.co/vxYGP3h8/Photoroom-20240720-094102.png" alt="App Logo" class="logo">
         <h1 id="title">Download NXB IPTV APK</h1>
         <p class="update-text" id="update-text">
-            <strong>Update Available!</strong><br>
-            - Updated UI<br>
-            - Android TV Compatibility (Beta)<br>
-            - Glassmorphism Channel Cards<br>
-            - 100% Safe, No Virus Detection<br>
-            - Lightweight APK, Enjoy!<br><br>
-            <strong>Don't have the app yet?</strong>
+            <strong>🚀 New Update Available!</strong><br>
+            ✅ Updated UI & Glassmorphism Design<br>
+            ✅ Android TV Support (Beta)<br>
+            ✅ Lightweight & Secure APK<br>
+            ✅ Enhanced Performance!<br><br>
+            <strong>Get the latest version now!</strong>
         </p>
 
         <a href="https://kwmbhphzkhr8kkiu.public.blob.vercel-storage.com/NXBFLIXTV-AjqQZmy6Nsx4HXkiRJfnGlWbXzvz25.apk" class="download-btn" id="download-btn" download>
@@ -138,14 +194,13 @@
 
         <div class="qr-container">
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kwmbhphzkhr8kkiu.public.blob.vercel-storage.com/NXBFLIXTV-AjqQZmy6Nsx4HXkiRJfnGlWbXzvz25.apk" alt="QR Code">
-            <p>Scan to Download</p>
+            <p>📲 Scan to Download</p>
         </div>
 
         <p class="lang-switch" onclick="toggleLanguage()">Español 🌍</p>
     </div>
 
     <script>
-        // Retrieve download count from localStorage
         let downloadCount = localStorage.getItem("downloadCount") || 0;
         document.getElementById("download-count").innerText = downloadCount;
 
@@ -153,7 +208,6 @@
             var loadingText = document.getElementById("loading-text");
             loadingText.style.display = "block";
 
-            // Increment and store download count
             downloadCount++;
             localStorage.setItem("downloadCount", downloadCount);
             document.getElementById("download-count").innerText = downloadCount;
@@ -164,35 +218,8 @@
         });
 
         function toggleLanguage() {
-            var title = document.getElementById("title");
-            var updateText = document.getElementById("update-text");
             var langSwitch = document.querySelector(".lang-switch");
-
-            if (langSwitch.innerText.includes("Español")) {
-                title.innerText = "Descargar NXB IPTV APK";
-                updateText.innerHTML = `
-                    <strong>¡Actualización Disponible!</strong><br>
-                    - Interfaz Actualizada<br>
-                    - Compatibilidad con Android TV (Beta)<br>
-                    - Tarjetas Glassmorphism<br>
-                    - 100% Seguro, Sin Virus<br>
-                    - APK Ligero, ¡Disfrútalo!<br><br>
-                    <strong>¿Aún no tienes la aplicación?</strong>
-                `;
-                langSwitch.innerText = "English 🌍";
-            } else {
-                title.innerText = "Download NXB IPTV APK";
-                updateText.innerHTML = `
-                    <strong>Update Available!</strong><br>
-                    - Updated UI<br>
-                    - Android TV Compatibility (Beta)<br>
-                    - Glassmorphism Channel Cards<br>
-                    - 100% Safe, No Virus Detection<br>
-                    - Lightweight APK, Enjoy!<br><br>
-                    <strong>Don't have the app yet?</strong>
-                `;
-                langSwitch.innerText = "Español 🌍";
-            }
+            langSwitch.innerText = langSwitch.innerText.includes("Español") ? "English 🌍" : "Español 🌍";
         }
     </script>
 
